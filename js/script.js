@@ -3,9 +3,34 @@
   const hamburger = document.querySelector('.hamburger');
   const nav = document.getElementById('nav-links');
   if(hamburger && nav){
-    hamburger.addEventListener('click', ()=>{
+    hamburger.addEventListener('click', (e)=>{
+      e.stopPropagation();
       const open = nav.classList.toggle('open');
       hamburger.setAttribute('aria-expanded', String(open));
+    });
+
+    // Close when clicking any nav link
+    nav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // Close when clicking outside
+    document.addEventListener('click', (e) => {
+      if(!nav.contains(e.target) && !hamburger.contains(e.target) && nav.classList.contains('open')){
+        nav.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Reset on window resize
+    window.addEventListener('resize', () => {
+      if(window.innerWidth > 900 && nav.classList.contains('open')){
+        nav.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      }
     });
   }
 })();
@@ -44,11 +69,20 @@
     setTimeout(()=>{ modal.classList.remove('open','closing'); }, 210);
   };
 
-  // Open from cards
-  document.querySelectorAll('.card.clickable[data-modal]').forEach(card=>{
+  // Open from cards / clickable elements
+  document.querySelectorAll('.clickable[data-modal], [data-modal]').forEach(card=>{
+    if(card.classList.contains('modal')) return; // ignore modals themselves
     card.addEventListener('click', ()=>{
       const id = card.getAttribute('data-modal');
       openModal(id);
+    });
+    // Keyboard accessibility (Enter/Space)
+    card.addEventListener('keydown', (e)=>{
+      if(e.key === 'Enter' || e.key === ' '){
+        e.preventDefault();
+        const id = card.getAttribute('data-modal');
+        openModal(id);
+      }
     });
   });
 

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ADT Management System - Deployment</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="nav-inner container">
+      <a href="./index.html" class="link-1"><div class="brand"><i class="fa-solid fa-bolt"></i> ADT <br> Management System</div></a>
+      <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="nav-links" class="nav-links">
+        <a href="./index.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="ongoing.html"><i class="fa-solid fa-clock-rotate-left"></i> Ongoing</a>
+        <a href="recommendation.html"><i class="fa-solid fa-lightbulb"></i> Recommendation</a>
+        <a href="requirement.html"><i class="fa-solid fa-list-check"></i> Requirement</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container section">
+    <!-- Header & Process Switcher -->
+    <div class="process-header-wrapper">
+      <div class="process-top-row">
+        <div class="process-badge deployment">
+          <i class="fa-solid fa-rocket"></i> Deployment Process
+        </div>
+        <div class="process-pill-nav">
+          <a href="deployment.html" class="active"><i class="fa-solid fa-rocket"></i> Deployment</a>
+          <a href="relocation.html"><i class="fa-solid fa-location-dot"></i> Relocation</a>
+          <a href="migration.html"><i class="fa-solid fa-network-wired"></i> Migration</a>
+          <a href="termination.html"><i class="fa-solid fa-power-off"></i> Termination</a>
+        </div>
+      </div>
+      <div class="process-title-row">
+        <h1 class="page-title">Deployment:</h1>
+        <button class="btn btn-compare" data-modal="#modal-deployment-compare">
+          <i class="fa-solid fa-code-compare"></i> Comparison
+        </button>
+      </div>
+    </div>
+
+    <!-- Comparison Grid -->
+    <section class="process-comparison-grid reveal">
+      <!-- Ongoing Card -->
+      <article class="process-card ongoing-card clickable" data-modal="#modal-deployment-current" role="button" tabindex="0" aria-label="View Ongoing Deployment Details">
+        <div>
+          <span class="process-card-badge badge-ongoing-state"><i class="fa-solid fa-clock-rotate-left"></i> Current State</span>
+          <h2 class="process-card-title">Ongoing Deployment</h2>
+          <div class="process-card-content">
+            <ul>
+              <li>After signingup and payment workflow at Development for ADT assigning.</li>
+              <li>Access field team deployed link through given ADT and update back office.</li>
+              <li>Access back office team run closure as per given details by field team.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card-action-footer">
+          <span class="click-hint">Click card to view details <i class="fa-solid fa-arrow-right"></i></span>
+        </div>
+      </article>
+
+      <!-- Recommendation Card -->
+      <article class="process-card recommendation-card clickable" data-modal="#modal-deployment-updated" role="button" tabindex="0" aria-label="View Recommended Deployment Details">
+        <div>
+          <span class="process-card-badge badge-recommendation-state"><i class="fa-solid fa-wand-magic-sparkles"></i> Recommended Workflow</span>
+          <h2 class="process-card-title">Recommended Deployment</h2>
+          <div class="process-card-content">
+            <ul>
+              <li>After signup and payment workflow at Development for ADT assigning.</li>
+              <li>MW shows customer nearest all ADT.</li>
+              <li>Need to add option add ADT port in MW which is mandatory to run closures.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card-action-footer">
+          <span class="click-hint">Click card to view details <i class="fa-solid fa-arrow-right"></i></span>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <!-- Modals -->
+  <!-- Split Comparison Modal (50% / 50% Full Height) -->
+  <div class="modal modal-compare" id="modal-deployment-compare" aria-hidden="true" role="dialog" aria-label="Deployment Full Workflow Comparison">
+    <div class="modal-content">
+      <!-- Header -->
+      <div class="compare-modal-header">
+        <div class="compare-header-left">
+          <div class="process-badge deployment"><i class="fa-solid fa-rocket"></i> Deployment</div>
+          <h2 class="compare-title">Full Workflow Side-by-Side Comparison</h2>
+        </div>
+        <button class="modal-close icon" data-close aria-label="Close Comparison"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <!-- Split Body: 50% Width Each, Full Height -->
+      <div class="compare-split-body">
+        <!-- Left 50%: Ongoing -->
+        <div class="compare-column compare-ongoing-col">
+          <div class="compare-col-header">
+            <span class="process-card-badge badge-ongoing-state"><i class="fa-solid fa-clock-rotate-left"></i> Current State</span>
+            <h3>Ongoing Deployment</h3>
+          </div>
+          <div class="compare-col-content">
+            <ol class="compare-steps-list">
+              <li>
+                <strong>ADT Assignment:</strong>
+                After signingup and payment workflow at Development for ADT assigning.
+              </li>
+              <li>
+                <strong>Field Deployment:</strong>
+                Access field team deployed link through given ADT and update back office.
+              </li>
+              <li>
+                <strong>Back Office Closure:</strong>
+                Access back office team run closure as per given details by field team.
+              </li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Right 50%: Recommendation -->
+        <div class="compare-column compare-recommendation-col">
+          <div class="compare-col-header">
+            <span class="process-card-badge badge-recommendation-state"><i class="fa-solid fa-wand-magic-sparkles"></i> Recommended Workflow</span>
+            <h3>Recommended Deployment</h3>
+          </div>
+          <div class="compare-col-content">
+            <ol class="compare-steps-list">
+              <li>
+                <strong>ADT Assignment:</strong>
+                After signup and payment workflow at Development for ADT assigning.
+              </li>
+              <li>
+                <strong>Proximity Detection:</strong>
+                MW shows customer nearest all ADT.
+              </li>
+              <li>
+                <strong>Mandatory ADT Port:</strong>
+                Need to add option add ADT port in MW which is mandatory to run closures.
+              </li>
+              <li>
+                <strong>Field Link Deployment:</strong>
+                Access field team deployed link from given or nearest ADT and update to back office regarding ADT change with ADT port.
+              </li>
+              <li>
+                <strong>Verified Closures:</strong>
+                Access back office team run closures as given details.
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="modal-actions compare-modal-actions">
+        <button class="btn btn-outline" data-close><i class="fa-solid fa-xmark"></i> Close Comparison</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ongoing Modal -->
+  <div class="modal" id="modal-deployment-current" aria-hidden="true" role="dialog" aria-label="Deployment (Current) details">
+    <div class="modal-content">
+      <button class="modal-close icon" data-close aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+      <div class="modal-body">
+        <h2>Deployment (Ongoing)</h2>
+        <ol>
+          <li>After signingup and payment workflow at Development for ADT assigning.</li>
+          <li>Access field team deployed link through given ADT and update back office.</li>
+          <li>Access back office team run closure as per given details by field team.</li>
+        </ol>
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn-outline" data-close><i class="fa-solid fa-xmark"></i> Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Recommendation Modal -->
+  <div class="modal" id="modal-deployment-updated" aria-hidden="true" role="dialog" aria-label="Deployment (Updated) details">
+    <div class="modal-content">
+      <button class="modal-close icon" data-close aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+      <div class="modal-body">
+        <h2 class="C-height">Deployment</h2>
+        <ol class="C-ol-height">
+          <li>After signup and payment workflow at Development for ADT assigning.</li>
+          <li>MW shows customer nearest all ADT.</li>
+          <li>Need to add option add ADT port in MW which is mandatory to run closures.</li>
+          <li>Access field team deployed link from given or nearest ADT and update to back office regarding ADT change with ADT port.</li>
+          <li>Access back office team run closures as given details.</li>
+        </ol>
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn-outline" data-close><i class="fa-solid fa-xmark"></i> Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
