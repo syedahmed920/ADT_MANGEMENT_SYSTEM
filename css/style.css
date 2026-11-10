@@ -1353,3 +1353,325 @@ main,
   border-color: #3a2c12;
 }
 
+
+
+/* ==========================================================================
+   Solutions Gateway Page & High-Tech Glowing Buttons
+   ========================================================================== */
+
+body.gateway-body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background: #060a14 url('../assets/images/signup-bg.webp') no-repeat center top fixed;
+  background-size: cover;
+}
+
+/* Subtle tech grid/beams overlay */
+body.gateway-body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background: 
+    radial-gradient(ellipse at 50% 50%, rgba(0, 110, 255, 0.15) 0%, rgba(6, 10, 20, 0.75) 85%),
+    linear-gradient(115deg, transparent 40%, rgba(0, 210, 255, 0.06) 48%, rgba(0, 132, 255, 0.15) 50%, rgba(0, 210, 255, 0.06) 52%, transparent 60%);
+}
+
+.gateway-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: clamp(2rem, 5vw, 4rem) clamp(2.5rem, 9vw, 11rem);
+  position: relative;
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+.solution-cards-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: clamp(1.25rem, 2.5vh, 1.85rem);
+  max-width: 420px;
+  width: 100%;
+  margin: 0;
+}
+
+/* Button Wrapper & Drop Shadow (creates neon ambient glow) */
+.solution-btn-wrap {
+  text-decoration: none;
+  display: block;
+  position: relative;
+  width: 100%;
+  max-width: 390px;
+  outline: none;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.3s ease;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.solution-btn-wrap:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 4px;
+}
+
+/* Chamfered Button Shell */
+.solution-btn {
+  position: relative;
+  height: clamp(64px, 8vw, 74px);
+  padding: 2px; /* Creates the outer neon border */
+  clip-path: polygon(
+    18px 0%,
+    calc(100% - 18px) 0%,
+    100% 18px,
+    100% calc(100% - 18px),
+    calc(100% - 18px) 100%,
+    18px 100%,
+    0% calc(100% - 18px),
+    0% 18px
+  );
+  overflow: visible;
+  transition: all 0.3s ease;
+}
+
+/* Inner Chamfer Container */
+.btn-inner {
+  clip-path: polygon(
+    16px 0%,
+    calc(100% - 16px) 0%,
+    100% 16px,
+    100% calc(100% - 16px),
+    calc(100% - 16px) 100%,
+    16px 100%,
+    0% calc(100% - 16px),
+    0% 16px
+  );
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 clamp(16px, 2.5vw, 24px) 0 clamp(18px, 2.5vw, 24px);
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* Subtle glossy shine across inner button */
+.btn-inner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.02) 100%);
+  pointer-events: none;
+}
+
+/* Top Lens Flare / Gleam */
+.btn-flare {
+  position: absolute;
+  top: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 5px;
+  border-radius: 999px;
+  z-index: 6;
+  pointer-events: none;
+  animation: flarePulse 3.5s ease-in-out infinite alternate;
+}
+
+@keyframes flarePulse {
+  0% {
+    opacity: 0.8;
+    width: 130px;
+  }
+  100% {
+    opacity: 1;
+    width: 175px;
+  }
+}
+
+/* Button Icon */
+.btn-icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #ffffff;
+}
+
+.btn-icon svg {
+  width: 30px;
+  height: 30px;
+  display: block;
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7));
+}
+
+/* Vertical Divider */
+.btn-divider {
+  width: 1.5px;
+  height: 34px;
+  background: rgba(255, 255, 255, 0.35);
+  margin: 0 clamp(10px, 1.8vw, 16px) 0 clamp(10px, 1.8vw, 14px);
+  flex-shrink: 0;
+}
+
+/* Button Label */
+.btn-text {
+  font-family: 'Poppins', 'Montserrat', sans-serif;
+  font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.4px;
+  white-space: nowrap;
+  flex-grow: 1;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+}
+
+/* Circular Arrow Badge */
+.btn-arrow-badge {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 0.95rem;
+  margin-left: clamp(8px, 1.5vw, 14px);
+  flex-shrink: 0;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.25s ease;
+}
+
+.solution-btn-wrap:hover .btn-arrow-badge {
+  transform: translateX(4px);
+}
+
+/* --------------------------------------------------------------------------
+   INTERIM SOLUTION (BLUE NEON)
+   -------------------------------------------------------------------------- */
+.solution-btn-wrap:has(.interim-btn) {
+  filter: drop-shadow(0 0 16px rgba(0, 140, 255, 0.65)) drop-shadow(0 12px 28px rgba(0, 70, 200, 0.45));
+}
+
+.solution-btn-wrap:hover:has(.interim-btn),
+.solution-btn-wrap:focus-visible:has(.interim-btn) {
+  transform: translateY(-4px) scale(1.02);
+  filter: drop-shadow(0 0 26px rgba(0, 200, 255, 0.95)) drop-shadow(0 16px 36px rgba(0, 110, 255, 0.65));
+}
+
+.solution-btn-wrap:active:has(.interim-btn) {
+  transform: translateY(-1px) scale(0.99);
+}
+
+.interim-btn {
+  background: linear-gradient(135deg, #00e5ff 0%, #0084ff 45%, #0044cc 100%);
+}
+
+.interim-btn .btn-inner {
+  background: linear-gradient(180deg, #0056e0 0%, #0036a3 52%, #002275 100%);
+}
+
+.interim-btn .btn-flare {
+  background: radial-gradient(ellipse at center, #ffffff 0%, #7ee6ff 40%, #00d2ff 75%, transparent 100%);
+  box-shadow: 0 0 12px #ffffff, 0 0 24px #00d2ff;
+}
+
+.interim-btn .btn-arrow-badge {
+  background: rgba(0, 22, 66, 0.75);
+  border: 1.5px solid rgba(0, 210, 255, 0.45);
+}
+
+.solution-btn-wrap:hover .interim-btn .btn-arrow-badge {
+  background: rgba(0, 35, 100, 0.9);
+  border-color: #00e5ff;
+  box-shadow: 0 0 12px rgba(0, 210, 255, 0.5);
+}
+
+/* --------------------------------------------------------------------------
+   PERMANENT SOLUTION (GREEN NEON)
+   -------------------------------------------------------------------------- */
+.solution-btn-wrap:has(.permanent-btn) {
+  filter: drop-shadow(0 0 16px rgba(0, 235, 110, 0.65)) drop-shadow(0 12px 28px rgba(0, 160, 70, 0.45));
+}
+
+.solution-btn-wrap:hover:has(.permanent-btn),
+.solution-btn-wrap:focus-visible:has(.permanent-btn) {
+  transform: translateY(-4px) scale(1.02);
+  filter: drop-shadow(0 0 26px rgba(50, 255, 140, 0.95)) drop-shadow(0 16px 36px rgba(0, 210, 95, 0.65));
+}
+
+.solution-btn-wrap:active:has(.permanent-btn) {
+  transform: translateY(-1px) scale(0.99);
+}
+
+.permanent-btn {
+  background: linear-gradient(135deg, #00ff88 0%, #00c853 45%, #007a2f 100%);
+}
+
+.permanent-btn .btn-inner {
+  background: linear-gradient(180deg, #028a3f 0%, #015c28 52%, #003e1a 100%);
+}
+
+.permanent-btn .btn-flare {
+  background: radial-gradient(ellipse at center, #ffffff 0%, #9effc5 40%, #00ff88 75%, transparent 100%);
+  box-shadow: 0 0 12px #ffffff, 0 0 24px #00ff88;
+}
+
+.permanent-btn .btn-arrow-badge {
+  background: rgba(0, 48, 20, 0.75);
+  border: 1.5px solid rgba(0, 255, 136, 0.45);
+}
+
+.solution-btn-wrap:hover .permanent-btn .btn-arrow-badge {
+  background: rgba(0, 75, 30, 0.9);
+  border-color: #00ff88;
+  box-shadow: 0 0 12px rgba(0, 255, 136, 0.5);
+}
+
+/* Navbar Switcher Pill across internal pages */
+.nav-switch-btn {
+  background: rgba(0, 132, 255, 0.12);
+  border: 1px solid rgba(0, 132, 255, 0.35);
+  color: #00b4d8 !important;
+  border-radius: 999px;
+  padding: 6px 14px !important;
+  font-size: 0.9rem !important;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-switch-btn:hover {
+  background: rgba(0, 132, 255, 0.28);
+  border-color: #00e5ff;
+  color: #ffffff !important;
+  box-shadow: 0 0 14px rgba(0, 210, 255, 0.4);
+}
+
+@media (max-width: 768px) {
+  .gateway-container {
+    justify-content: center;
+    padding: 2rem 1.5rem;
+  }
+
+  .solution-cards-wrapper {
+    align-items: center;
+    margin: 0 auto;
+  }
+}

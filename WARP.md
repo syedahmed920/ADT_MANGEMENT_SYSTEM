@@ -11,7 +11,9 @@ The ADT Management System is a web-based application for managing telecommunicat
 This is a static web application built with vanilla HTML5, CSS3, and JavaScript:
 
 ### Core Structure
-- **Landing Page** (`index.html`) - Hero page with animated elements and journey start point
+- **Solutions Gateway** (`index.html`) - Minimalist entrance page with background visuals and glowing solution selectors (Interim Solution & Permanent Solution)
+- **Permanent Solution Home** (`home.html`) - Main hero dashboard with animated elements, pentagon navigation, and journey start point
+- **Interim Solution** (`interim.html`) - Interim solution workflows and dedicated operational content
 - **Ongoing Processes** (`ongoing.html`) - Current operational workflows for ADT management
 - **Recommendations** (`recommendation.html`) - Improved workflow processes and suggestions
 - **Requirements** (`requirement.html`) - Technical requirements and resource needs
@@ -24,16 +26,22 @@ This is a static web application built with vanilla HTML5, CSS3, and JavaScript:
 
 ### File Organization
 ```
-├── index.html              # Landing page with hero section
-├── ongoing.html           # Current process workflows
-├── recommendation.html    # Recommended process improvements  
-├── requirement.html       # System requirements and resources
+├── index.html              # Solutions Gateway entry page (Interim vs Permanent)
+├── home.html               # Permanent Solution home page with hero section
+├── interim.html            # Interim Solution workspace page
+├── ongoing.html            # Current process workflows
+├── recommendation.html     # Recommended process improvements  
+├── requirement.html        # System requirements and resources
+├── deployment.html         # Deployment process comparison
+├── relocation.html          # Relocation process comparison
+├── migration.html           # Migration process comparison
+├── termination.html         # Termination process comparison
 ├── css/
-│   └── style.css         # Complete styling with animations and responsive design
+│   └── style.css          # Complete styling with animations and responsive design
 ├── js/
-│   └── script.js         # Modal handling, navigation, and GSAP animations
+│   └── script.js          # Modal handling, navigation, and GSAP animations
 └── assets/
-    └── images/           # Background images and visual elements
+    └── images/            # Background images and visual elements
 ```
 
 ## Development Commands

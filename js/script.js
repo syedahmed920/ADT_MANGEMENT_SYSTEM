@@ -111,10 +111,27 @@
 
 // ------------------------------------------------------------------------------ GSAP Animations -----------------------------------------------------------------------------
 
-let tl = gsap.timeline();
+if(typeof gsap !== 'undefined'){
+  const tl = gsap.timeline();
 
-tl.from(".brand",{
-  y: -100,
-  opacity: 0,
-  delay: 0.3,
-})
+  if(document.querySelector('.brand')){
+    tl.from(".brand",{
+      y: -100,
+      opacity: 0,
+      duration: 0.8,
+      delay: 0.3,
+      ease: "power2.out"
+    });
+  }
+
+  if(document.querySelector('.solution-btn-wrap')){
+    tl.from(".solution-btn-wrap",{
+      x: -45,
+      opacity: 0,
+      duration: 0.7,
+      stagger: 0.15,
+      delay: 0.2,
+      ease: "power2.out"
+    });
+  }
+}
